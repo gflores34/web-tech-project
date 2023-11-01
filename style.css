@@ -92,16 +92,6 @@ span{
 
 }
 
-.book:hover {
-    border-style: solid;
-    border-color: cyan;
-    width: 250px;
-    height: 450px;
-    padding: 20px;
-    cursor: pointer;
-    float:left;
-}
-
 .cover-image {
     height: 325px;
     width: 225px;
