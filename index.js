@@ -70,11 +70,6 @@ function generate_books(dataArray){
     
     for(let i = 0; i < dataArray.length; i++){
 
-        if( i % 4 || i == 0){
-            var newRow = document.createElement("div");
-            newRow.classList.add("bookRow");
-        }
-
         var newBook = document.createElement("div");
         newBook.classList.add("book");
 
@@ -102,11 +97,7 @@ function generate_books(dataArray){
         p3.appendChild(priceText);
         newBook.appendChild(p3);
 
-        newRow.appendChild(newBook);
-
-        if((i % 4) - 1){
-            node.appendChild(newRow);
-        }
+        node.appendChild(newBook);
 
     }
 
