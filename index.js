@@ -25,25 +25,6 @@ function set_book_author(title, bookId){
     xhttp.send();
 }
 
-
-function emptyStringError(){
-    document.getElementById("responseString").innerHTML = "One or two of the above text boxes are empty. Please fill them both in";
-}
-
-function getDataFromForm(){
-    let title = document.getElementById("book1-title").value;
-    let lname = document.getElementById("lname").value;
-
-    console.log("fname: " + fname);
-
-    if (fname == "" || lname == ""){
-        emptyStringError();
-    } else {
-        runAjax(fname, lname);
-    }
-
-}
-
 function set_featured_images(){
     for(let bookNum = 1; bookNum < 5; bookNum++){
         let bookIdString = "book"+ bookNum +"-title"
@@ -68,6 +49,14 @@ function set_featured_authors(){
     }
 }
 
+function generate_books(total){
+
+    
+
+
+}
+
 set_featured_images();
 set_featured_prices();
 set_featured_authors();
+
