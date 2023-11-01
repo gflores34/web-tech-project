@@ -88,6 +88,7 @@ function generate_books(dataArray){
         var titleText = document.createTextNode(dataArray[i].Title);
         p1.appendChild(titleText);
         newBook.appendChild(p1);
+        console.log(dataArray[i].Title);
 
         var p2 = document.createElement("p");
         p2.classList.add("book-author");
