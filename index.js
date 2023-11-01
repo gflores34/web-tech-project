@@ -74,19 +74,19 @@ function generate_books(dataArray){
 
         var image = document.createElement("img");
         image.classList.add("cover-image");
-        //image.src(dataArray[i].ImagePath);
+        image.src = dataArray[i].ImagePath;
 
         var p1 = document.createElement("p");
         p1.classList.add("book-title");
-        p1.innerHTML(dataArray[i].Title)
+        p1.textNode(dataArray[i].Title)
 
         var p2 = document.createElement("p");
         p2.classList.add("book-author");
-        p2.innerHTML(dataArray[i].Author);
+        p2.textNode(dataArray[i].Author);
 
         var p3 = document.createElement("p");
         p3.classList.add("price");
-        p3.innerHTML(dataArray[i].SellingPrice);
+        p3.textNode(dataArray[i].SellingPrice);
 
         node.appendChild(newBook);
 
