@@ -53,7 +53,8 @@ function get_all_books(){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         var data = this.response;
-        console.log(data);
+        var dataParse = JSON.parse(data);
+        console.log(dataParse.title);
         //document.getElementById(bookId).innerHTML = this.responseText;
     }
     xhttp.open("GET", "./get_all_books.php", true);
