@@ -16,8 +16,6 @@ if (mysqli_connect_errno())
     exit();
 }
 
-$book_title = $_GET['title'];
-
 $query="SELECT Books.Title, Books.SellingPrice, Authors.Name, Images.ImagePath FROM Books INNER JOIN Images ON Books.ISBN = Images.ISBN INNER JOIN Authors ON Books.AuthorId
 = Authors.AuthorId";
 
