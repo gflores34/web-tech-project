@@ -1,3 +1,7 @@
+body{
+    width:1000px;
+}
+
 .header {
     width:flex;
     height:100px;

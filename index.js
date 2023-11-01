@@ -68,6 +68,7 @@ function generate_books(dataArray){
 
     var node = document.getElementById("all-books");
 
+    
     for(let i = 0; i < dataArray.length; i++){
 
         var newBook = document.createElement("div");
