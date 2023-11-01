@@ -112,6 +112,7 @@ span{
 .all-books {
     padding: 20px;
     display:inline-flex;
+    overflow-wrap: normal;
 }
 
 .bookRow {
