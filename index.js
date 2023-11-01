@@ -1,11 +1,30 @@
-function set_book_image(title, bookIdImage){
+function set_book_image(title, bookId){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById(bookIdImage).src = this.responseText;
+        document.getElementById(bookId).src = this.responseText;
     }
     xhttp.open("GET", "./get_book_image.php?title=" + title, true);
     xhttp.send();
 }
+
+function set_book_price(title, bookId){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById(bookId).innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "./get_book_image.php?title=" + title, true);
+    xhttp.send();
+}
+
+function set_book_author(title, bookId){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        document.getElementById(bookId).innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "./get_book_image.php?title=" + title, true);
+    xhttp.send();
+}
+
 
 function emptyStringError(){
     document.getElementById("responseString").innerHTML = "One or two of the above text boxes are empty. Please fill them both in";
@@ -33,4 +52,13 @@ function set_featured_images(){
     }
 }
 
+function set_featured_prices(){
+    for(let bookNum = 1; bookNum < 5; bookNum++){
+        let bookIdString = "book"+ bookNum +"-title"
+        let book_title = document.getElementById(bookIdString).innerHTML;
+        set_book_price(book_title, "book"+ bookNum + "-price");
+    }
+}
+
 set_featured_images();
+set_featured_prices();
