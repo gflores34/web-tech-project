@@ -72,7 +72,7 @@ function generate_books(dataArray){
 
         let count = 0;
 
-        if( count == 4 || i == 0){
+        if( i % 4 || i == 0){
             var newRow = document.createElement("div");
             newRow.classList.add("bookRow");
             count = 0;
