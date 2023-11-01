@@ -12,7 +12,7 @@ function set_book_price(title, bookId){
     xhttp.onload = function() {
         document.getElementById(bookId).innerHTML = this.responseText;
     }
-    xhttp.open("GET", "./get_book_image.php?title=" + title, true);
+    xhttp.open("GET", "./get_book_price.php?title=" + title, true);
     xhttp.send();
 }
 
@@ -21,7 +21,7 @@ function set_book_author(title, bookId){
     xhttp.onload = function() {
         document.getElementById(bookId).innerHTML = this.responseText;
     }
-    xhttp.open("GET", "./get_book_image.php?title=" + title, true);
+    xhttp.open("GET", "./get_book_author.php?title=" + title, true);
     xhttp.send();
 }
 
