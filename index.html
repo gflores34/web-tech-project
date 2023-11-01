@@ -8,89 +8,90 @@
 
 
 <body>
-    <div class="header">
-        <div class="header-left">
-            <div>
-                <h1>CHEAPBOOKS</h1>
-            </div>
-            <span></span>
-            <div class="dropdown">
-                <button class="menu-button">All Books</button>
-            </div>
-            <span></span>
-            <div class="dropdown">
-                <button class="menu-button">Genres</button>
-                <div class="dropdown-content">
-                    <a href="">Adventure</a>
-                    <a href="">Children's Fiction</a>
-                    <a href="">Fantasy</a>
-                    <a href="">Romance</a>
-                    <a href="">Science Fiction</a>
-                    <a href="">Young Adult</a>
-                    <a href="">Biography</a>
-                    <a href="">Thriller</a>
-                    <a href="">Western</a>
+    <div style="center">
+        <div class="header">
+            <div class="header-left">
+                <div>
+                    <h1>CHEAPBOOKS</h1>
                 </div>
+                <span></span>
+                <div class="dropdown">
+                    <button class="menu-button">All Books</button>
+                </div>
+                <span></span>
+                <div class="dropdown">
+                    <button class="menu-button">Genres</button>
+                    <div class="dropdown-content">
+                        <a href="">Adventure</a>
+                        <a href="">Children's Fiction</a>
+                        <a href="">Fantasy</a>
+                        <a href="">Romance</a>
+                        <a href="">Science Fiction</a>
+                        <a href="">Young Adult</a>
+                        <a href="">Biography</a>
+                        <a href="">Thriller</a>
+                        <a href="">Western</a>
+                    </div>
+                </div>
+                <span></span>
+                <div class="search-bar">
+                    <form action="/search_books.php">
+                        <input class="search-input" type="text" placeholder="Search..." name="search">
+                        <button class="search-button" type="submit"><img class="search-logo" src="./images/Search.svg"></button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="header-right">
+                <a href="">login</a>
+                <a>|</a>
+                <a href="">cart</a>
+            </div>
+        </div>
+
+        <div>
+            <h2>Featured Books</h2>
+        </div>
+
+        <div class="featured-books">
+            <div class="book">
+                <img class="cover-image" id="book1-image" src="">
+                <p class="book-title" id="book1-title">Harry Potter and the Sorcerer's Stone</p>
+                <p class="book-author" id="book1-author"></p>
+                <p class="price" id="book1-price">$0.00</p>
             </div>
             <span></span>
-            <div class="search-bar">
-                <form action="/search_books.php">
-                    <input class="search-input" type="text" placeholder="Search..." name="search">
-                    <button class="search-button" type="submit"><img class="search-logo" src="./images/Search.svg"></button>
-                </form>
+            <div class="book">
+                <img class="cover-image" id="book2-image" src="">
+                <p class="book-title" id="book2-title">Dune</p>
+                <p class="book-author" id="book2-author"></p>
+                <p class="price" id="book2-price">$0.00</p>
             </div>
-
+            <span></span>
+            <div class="book">
+                <img class="cover-image" id="book3-image" src="">
+                <p class="book-title" id="book3-title">The Road</p>
+                <p class="book-author" id="book3-author"></p>
+                <p class="price" id="book3-price">$0.00</p>
+            </div>
+            <span></span>
+            <div class="book">
+                <img class="cover-image" id="book4-image" src="">
+                <p class="book-title" id="book4-title">A Song of Ice and Fire</p>
+                <p class="book-author" id="book4-author"></p>
+                <p class="price" id="book4-price">$0.00</p>
+            </div>
+            <span></span>
         </div>
 
-        <div class="header-right">
-            <a href="">login</a>
-            <a>|</a>
-            <a href="">cart</a>
+        <div>
+            <h2>All Books</h2>
+        </div>
+
+
+        <div class="all-books" id="all-books">
+            
         </div>
     </div>
-
-    <div>
-        <h2>Featured Books</h2>
-    </div>
-
-    <div class="featured-books">
-        <div class="book">
-            <img class="cover-image" id="book1-image" src="">
-            <p class="book-title" id="book1-title">Harry Potter and the Sorcerer's Stone</p>
-            <p class="book-author" id="book1-author"></p>
-            <p class="price" id="book1-price">$0.00</p>
-        </div>
-        <span></span>
-        <div class="book">
-            <img class="cover-image" id="book2-image" src="">
-            <p class="book-title" id="book2-title">Dune</p>
-            <p class="book-author" id="book2-author"></p>
-            <p class="price" id="book2-price">$0.00</p>
-        </div>
-        <span></span>
-        <div class="book">
-            <img class="cover-image" id="book3-image" src="">
-            <p class="book-title" id="book3-title">The Road</p>
-            <p class="book-author" id="book3-author"></p>
-            <p class="price" id="book3-price">$0.00</p>
-        </div>
-        <span></span>
-        <div class="book">
-            <img class="cover-image" id="book4-image" src="">
-            <p class="book-title" id="book4-title">A Song of Ice and Fire</p>
-            <p class="book-author" id="book4-author"></p>
-            <p class="price" id="book4-price">$0.00</p>
-        </div>
-        <span></span>
-    </div>
-
-    <div>
-        <h2>All Books</h2>
-    </div>
-
-
-    <div class="all-books" id="all-books">
-        
-    </div>
-
 </body>
