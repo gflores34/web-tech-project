@@ -67,38 +67,41 @@ function get_all_books(){
 function generate_books(dataArray){
 
     var node = document.getElementById("all-books");
-
     
-    for(let i = 0; i < dataArray.length; i++){
+    for(let j = 0; j < dataArray.length; j+=4){
+        for(let i = 0; i < 3; i++){
+            var newRow = document.createElement("div");
+            newBook.classList.add("bookRow");
 
-        var newBook = document.createElement("div");
-        newBook.classList.add("book");
+            var newBook = document.createElement("div");
+            newBook.classList.add("book");
 
-        var image = document.createElement("img");
-        image.classList.add("cover-image");
-        image.src = dataArray[i].ImagePath;
-        newBook.appendChild(image);
+            var image = document.createElement("img");
+            image.classList.add("cover-image");
+            image.src = dataArray[i].ImagePath;
+            newBook.appendChild(image);
 
-        var p1 = document.createElement("p");
-        p1.classList.add("book-title");
-        var titleText = document.createTextNode(dataArray[i].Title);
-        p1.appendChild(titleText);
-        newBook.appendChild(p1);
+            var p1 = document.createElement("p");
+            p1.classList.add("book-title");
+            var titleText = document.createTextNode(dataArray[i].Title);
+            p1.appendChild(titleText);
+            newBook.appendChild(p1);
 
-        var p2 = document.createElement("p");
-        p2.classList.add("book-author");
-        var authorText = document.createTextNode(dataArray[i].Name);
-        p2.appendChild(authorText);
-        newBook.appendChild(p2);
+            var p2 = document.createElement("p");
+            p2.classList.add("book-author");
+            var authorText = document.createTextNode(dataArray[i].Name);
+            p2.appendChild(authorText);
+            newBook.appendChild(p2);
 
-        var p3 = document.createElement("p");
-        p3.classList.add("price");
-        var priceText = document.createTextNode(dataArray[i].SellingPrice);
-        p3.appendChild(priceText);
-        newBook.appendChild(p3);
+            var p3 = document.createElement("p");
+            p3.classList.add("price");
+            var priceText = document.createTextNode(dataArray[i].SellingPrice);
+            p3.appendChild(priceText);
+            newBook.appendChild(p3);
 
-        node.appendChild(newBook);
-
+            newRow.appendChild(newBook);
+        }
+        node.appendChild(newRow);
     }
 
 }
