@@ -1,14 +1,17 @@
+
 .center{
-    width: 60%;
-    height: 600px;
+    width: 80%;
+    height: 1600px;
     margin: 0 auto;
+    overflow: scroll;
 }
 
 .header {
     width:flex;
     height:100px;
-    margin: auto;
-    width: 50%;
+    margin: 0 auto;
+    width: 60%;
+    overflow: visible;
 }
 
 
@@ -17,15 +20,11 @@
     display: flex;
     padding: 10px;
     align-items: center;
+    overflow: visible;
 }
 
 span{
-    width:30px;
-}
-
-.header-right {
-    float:right;
-    padding: 40px;
+    width:20px;
 }
 
 .search-logo {
@@ -35,7 +34,8 @@ span{
 
 .search-input {
     height: 30px;
-    width: 300px;
+    width: 250px;
+    overflow: hidden;
 }
 
 .menu-button{
@@ -80,6 +80,7 @@ span{
 .featured-books {
     padding: 20px;
     display:inline-flex;
+    width: inherit;
 }
 
 .book {
