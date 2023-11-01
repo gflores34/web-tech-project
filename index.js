@@ -70,12 +70,9 @@ function generate_books(dataArray){
     
     for(let i = 0; i < dataArray.length; i++){
 
-        let count = 0;
-
         if( i % 4 || i == 0){
             var newRow = document.createElement("div");
             newRow.classList.add("bookRow");
-            count = 0;
         }
 
         var newBook = document.createElement("div");
@@ -106,9 +103,7 @@ function generate_books(dataArray){
 
         newRow.appendChild(newBook);
 
-        count += 1;
-
-        if(count == 4){
+        if((i % 4) - 1){
             node.appendChild(newRow);
         }
 
