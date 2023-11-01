@@ -54,18 +54,43 @@ function get_all_books(){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
-        console.log(data);
-        console.log(dataParse[0].Title);
+
+        generate_books(dataParse);
+
         //document.getElementById(bookId).innerHTML = this.responseText;
     }
     xhttp.open("GET", "./get_all_books.php", true);
     xhttp.send();
 }
 
-function generate_books(total){
+function generate_books(dataArray){
 
+    var node = document.getElementById("all-books");
 
+    for(let i = 0; i < dataArray.length; i++){
 
+        var newBook = document.createElement("div");
+        newBook.classList.add("book");
+
+        var image = document.createElement("img");
+        image.classList("cover-image");
+        image.src(dataArray[i].ImagePath);
+
+        var p1 = document.createElement("p");
+        p1.classList("book-title");
+        p1.innerHTML(dataArray[i].Title)
+
+        var p2 = document.createElement("p");
+        p2.classList("book-author");
+        p2.innerHTML(dataArray[i].Author);
+
+        var p3 = document.createElement("p");
+        p3.classList("price");
+        p3.innerHTML(dataArray[i].SellingPrice);
+
+        node.appendChild(newBook);
+
+    }
 
 }
 
