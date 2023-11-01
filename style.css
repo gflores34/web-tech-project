@@ -88,6 +88,7 @@ span{
     height: 450px;
     padding: 20px;
     text-align: center;
+    float: left;
 
 }
 
@@ -98,6 +99,7 @@ span{
     height: 450px;
     padding: 20px;
     cursor: pointer;
+    float:left;
 }
 
 .cover-image {
@@ -111,7 +113,7 @@ span{
 
 .all-books {
     padding: 20px;
-    display:inline-flex;
+    display:inline;
     overflow-wrap: normal;
 }
 
