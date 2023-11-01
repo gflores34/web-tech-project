@@ -74,7 +74,7 @@ function generate_books(dataArray){
 
         var image = document.createElement("img");
         image.classList.add("cover-image");
-        image.src(dataArray[i].ImagePath);
+        //image.src(dataArray[i].ImagePath);
 
         var p1 = document.createElement("p");
         p1.classList.add("book-title");
