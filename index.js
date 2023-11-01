@@ -71,7 +71,7 @@ function generate_books(dataArray){
     for(let j = 0; j < dataArray.length; j+=4){
         for(let i = 0; i < 3; i++){
             var newRow = document.createElement("div");
-            newBook.classList.add("bookRow");
+            newRow.classList.add("bookRow");
 
             var newBook = document.createElement("div");
             newBook.classList.add("book");
