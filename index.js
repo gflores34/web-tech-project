@@ -70,4 +70,4 @@ function generate_books(total){
 set_featured_images();
 set_featured_prices();
 set_featured_authors();
-
+get_all_books();
