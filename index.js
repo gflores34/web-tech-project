@@ -64,7 +64,7 @@ function set_featured_authors(){
     for(let bookNum = 1; bookNum < 5; bookNum++){
         let bookIdString = "book"+ bookNum +"-title"
         let book_title = document.getElementById(bookIdString).innerHTML;
-        set_book_price(book_title, "book"+ bookNum + "-author");
+        set_book_author(book_title, "book"+ bookNum + "-author");
     }
 }
 
