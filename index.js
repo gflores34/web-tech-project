@@ -54,6 +54,7 @@ function get_all_books(){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
+        console.log(dataParse);
 
         generate_books(dataParse);
 
@@ -75,18 +76,25 @@ function generate_books(dataArray){
         var image = document.createElement("img");
         image.classList.add("cover-image");
         image.src = dataArray[i].ImagePath;
+        newBook.appendChild(image);
 
         var p1 = document.createElement("p");
         p1.classList.add("book-title");
-        p1.textNode(dataArray[i].Title)
+        var titleText = document.createTextNode(dataArray[i].Title);
+        p1.appendChild(titleText);
+        newBook.appendChild(p1);
 
         var p2 = document.createElement("p");
         p2.classList.add("book-author");
-        p2.textNode(dataArray[i].Author);
+        var authorText = document.createTextNode(dataArray[i].Name);
+        p2.appendChild(authorText);
+        newBook.appendChild(p2);
 
         var p3 = document.createElement("p");
         p3.classList.add("price");
-        p3.textNode(dataArray[i].SellingPrice);
+        var priceText = document.createTextNode(dataArray[i].SellingPrice);
+        p3.appendChild(priceText);
+        newBook.appendChild(p3);
 
         node.appendChild(newBook);
 
