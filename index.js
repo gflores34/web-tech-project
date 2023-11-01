@@ -60,5 +60,14 @@ function set_featured_prices(){
     }
 }
 
+function set_featured_authors(){
+    for(let bookNum = 1; bookNum < 5; bookNum++){
+        let bookIdString = "book"+ bookNum +"-title"
+        let book_title = document.getElementById(bookIdString).innerHTML;
+        set_book_price(book_title, "book"+ bookNum + "-author");
+    }
+}
+
 set_featured_images();
 set_featured_prices();
+set_featured_authors();
