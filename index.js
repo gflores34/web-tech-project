@@ -49,9 +49,19 @@ function set_featured_authors(){
     }
 }
 
+function get_all_books(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var data = this.response;
+        //document.getElementById(bookId).innerHTML = this.responseText;
+    }
+    xhttp.open("GET", "./get_all_books.php", true);
+    xhttp.send();
+}
+
 function generate_books(total){
 
-    
+
 
 
 }
