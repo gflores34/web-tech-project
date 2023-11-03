@@ -14,7 +14,7 @@ function set_price(title, book_id){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
-	document.getElementById(book_id).innerHTML = dataParse[0].SellingPrice;
+	document.getElementById(book_id).innerHTML ="$" +  dataParse[0].SellingPrice;
     }
     xhttp.open("GET", "./get_book.php?title=" + title, true);
     xhttp.send();
@@ -36,20 +36,22 @@ function set_featured_books(book1, book2, book3, book4){
 	set_author(book1, "featured1-author");
 	set_image(book1, "featured1-image");
 	set_price(book1, "featured1-price");
+	document.getElementById("featured1-title").innerHTML = book1;
 
 	set_author(book2, "featured2-author");
 	set_image(book2, "featured2-image");
 	set_price(book2, "featured2-price");
+	document.getElementById("featured2-title").innerHTML = book2;
 
+	set_author(book3, "featured3-author");
+	set_image(book3, "featured3-image");
+	set_price(book3, "featured3-price");
+	document.getElementById("featured3-title").innerHTML = book3;
 
-	set_author(book1, "featured3-author");
-	set_image(book1, "featured3-image");
-	set_price(book1, "featured3-price");
-
-
-	set_author(book1, "featured4-author");
-	set_image(book1, "featured4-image");
-	set_price(book1, "featured4-price");
+	set_author(book4, "featured4-author");
+	set_image(book4, "featured4-image");
+	set_price(book4, "featured4-price");
+	document.getElementById("featured4-title").innerHTML = book4;
 }
 
 
@@ -95,8 +97,8 @@ function generate_books(dataArray){
 
         var p3 = document.createElement("p");
         p3.classList.add("price");
-        var priceText = document.createTextNode(dataArray[i].SellingPrice);
-        p3.appendChild(priceText);
+        var priceText = document.createTextNode("$" + dataArray[i].SellingPrice);
+        p3.appendChild( priceText);
         newBook.appendChild(p3);
 
         node.appendChild(newBook);
@@ -106,6 +108,4 @@ function generate_books(dataArray){
 }
 
 get_all_books();
-
-
-set_author("Harry Potter and the Sorcerer's Stone", "book1-author");
+set_featured_books("Harry Potter and the Sorcerer's Stone", "Dune", "The Road", "A Song of Ice and Fire");
