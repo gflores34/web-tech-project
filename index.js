@@ -1,54 +1,57 @@
-function set_book_image(title, bookId){
+function set_image(title, book_id){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById(bookId).src = this.responseText;
+        var data = this.response;
+        var dataParse = JSON.parse(data);
+	document.getElementById(book_id).src = dataParse[0].ImagePath;
     }
-    xhttp.open("GET", "./get_book_image.php?title=" + title, true);
+    xhttp.open("GET", "./get_book.php?title=" + title, true);
     xhttp.send();
 }
 
-function set_book_price(title, bookId){
+function set_price(title, book_id){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-        document.getElementById(bookId).innerHTML = this.responseText;
+        var data = this.response;
+        var dataParse = JSON.parse(data);
+	document.getElementById(book_id).innerHTML = dataParse[0].SellingPrice;
     }
-    xhttp.open("GET", "./get_book_price.php?title=" + title, true);
+    xhttp.open("GET", "./get_book.php?title=" + title, true);
     xhttp.send();
 }
 
-function set_book_author(title, bookId){
+function set_author(title, book_id){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-	    console.log("author test: " + this.responseText);
-        document.getElementById(bookId).innerHTML = this.responseText;
+        var data = this.response;
+        var dataParse = JSON.parse(data);
+	document.getElementById(book_id).innerHTML = dataParse[0].Name;
     }
-    xhttp.open("GET", "./get_book_author.php?title=" + title, true);
+    xhttp.open("GET", "./get_book.php?title=" + title, true);
     xhttp.send();
 }
 
-function set_featured_images(){
-    for(let bookNum = 1; bookNum < 5; bookNum++){
-        let bookIdString = "book"+ bookNum +"-title"
-        let book_title = document.getElementById(bookIdString).innerHTML;
-        set_book_image(book_title, "book"+ bookNum + "-image");
-    }
+function set_featured_books(book1, book2, book3, book4){
+
+	set_author(book1, "featured1-author");
+	set_image(book1, "featured1-image");
+	set_price(book1, "featured1-price");
+
+	set_author(book2, "featured2-author");
+	set_image(book2, "featured2-image");
+	set_price(book2, "featured2-price");
+
+
+	set_author(book1, "featured3-author");
+	set_image(book1, "featured3-image");
+	set_price(book1, "featured3-price");
+
+
+	set_author(book1, "featured4-author");
+	set_image(book1, "featured4-image");
+	set_price(book1, "featured4-price");
 }
 
-function set_featured_prices(){
-    for(let bookNum = 1; bookNum < 5; bookNum++){
-        let bookIdString = "book"+ bookNum +"-title"
-        let book_title = document.getElementById(bookIdString).innerHTML;
-        set_book_price(book_title, "book"+ bookNum + "-price");
-    }
-}
-
-function set_featured_authors(){
-    for(let bookNum = 1; bookNum < 5; bookNum++){
-        let bookIdString = "book"+ bookNum +"-title"
-        let book_title = document.getElementById(bookIdString).innerHTML;
-        set_book_author(book_title, "book"+ bookNum + "-author");
-    }
-}
 
 function get_all_books(){
     const xhttp = new XMLHttpRequest();
@@ -102,7 +105,7 @@ function generate_books(dataArray){
 
 }
 
-set_featured_images();
-set_featured_prices();
-set_featured_authors();
 get_all_books();
+
+
+set_author("Harry Potter and the Sorcerer's Stone", "book1-author");
