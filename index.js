@@ -19,6 +19,7 @@ function set_book_price(title, bookId){
 function set_book_author(title, bookId){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
+	    console.log("author test: " + this.responseText);
         document.getElementById(bookId).innerHTML = this.responseText;
     }
     xhttp.open("GET", "./get_book_author.php?title=" + title, true);
@@ -54,7 +55,6 @@ function get_all_books(){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
-        console.log(dataParse);
 
         generate_books(dataParse);
 
@@ -83,7 +83,6 @@ function generate_books(dataArray){
         var titleText = document.createTextNode(dataArray[i].Title);
         p1.appendChild(titleText);
         newBook.appendChild(p1);
-        console.log(dataArray[i].Title);
 
         var p2 = document.createElement("p");
         p2.classList.add("book-author");
