@@ -1,12 +1,16 @@
 
 .login-form{
-	display:inline-grid;
+	display:inline-block;
 }
 
 .login-box{
 	align:center;
 	margin-top:10%;
 	margin-left:40%;
+}
+
+.email-label{
+	padding:10px;
 }
 
 .center{
