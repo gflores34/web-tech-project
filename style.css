@@ -47,6 +47,8 @@ span{
 }
 
 .search-input {
+    background: image-set("./images/Search.svg") top right no-repeat;
+    background-size: 10%;
     height: 30px;
     width: 250px;
     overflow: hidden;
@@ -133,4 +135,8 @@ span{
 .bookRow {
     padding: 20px;
     display:inline-flex;
+}
+
+.links {
+    padding-left: 10px;
 }
