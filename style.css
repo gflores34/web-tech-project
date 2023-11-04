@@ -140,3 +140,8 @@ span{
 .links {
     padding-left: 10px;
 }
+
+.main-title {
+    text-decoration: none;
+    color: black;
+}
