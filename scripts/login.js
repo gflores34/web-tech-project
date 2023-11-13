@@ -9,9 +9,9 @@ registerForm.addEventListener("submit", (e) => {
     let userpassword = document.getElementById('register-password');
     let userfirstname = document.getElementById('register-first_name');
     let userlastname = document.getElementById('register-last_name');
-    
-    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
 
+    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
+    window.location.href = "../index.html";
 });
 
 signinForm.addEventListener("submit", (e) => {
@@ -26,8 +26,9 @@ signinForm.addEventListener("submit", (e) => {
 
     if (currUser != null) {
         setUser(currUser);
+        
     } else {
         // throw error
     }
-
+    window.location.href = "../index.html";
 });
