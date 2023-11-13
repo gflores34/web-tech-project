@@ -19,7 +19,7 @@ if (mysqli_connect_errno())
 $user_email = $_GET['user_email']; 
 $user_password = $_GET['user_password']; 
 
-$query="SELECT Users.user_id, Users.first_name, Users.last_name, Users.password, Users.email, Users.usergroup FROM Users WHERE Users.email = \"$user_email\" && Users.password = \"$user_password\"";
+$query="SELECT user_id, first_name, last_name, password, email, usergroup FROM Users WHERE Users.email = \"$user_email\" && Users.password = \"$user_password\"";
 
 $result = $db_conn->query($query);
 

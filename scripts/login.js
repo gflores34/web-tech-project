@@ -15,7 +15,7 @@ registerForm.addEventListener("submit", (e) => {
 
     let currUser = getUser(useremail.value, userpassword.value);
     setUser(currUser);
-    window.location.href = "../index.html";
+    //window.location.href = "../index.html";
 });
 
 // handle sign in
@@ -31,9 +31,8 @@ signinForm.addEventListener("submit", (e) => {
 
     if (currUser != null) {
         setUser(currUser);
-        
+        //window.location.href = "../index.html";
     } else {
         // throw error
     }
-    window.location.href = "../index.html";
 });
