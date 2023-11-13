@@ -14,6 +14,7 @@ export function setUser(user) {
     localStorage.setItem("loggedUser", user);
 };
 
+// get currently logged in user
 export function getLoggedUser() {
     let user = localStorage.getItem("loggedUser");
 
@@ -25,13 +26,14 @@ export function getLoggedUser() {
 
 };
 
+// log the user out, goes back to home page
 export function logoutUser() {
     localStorage.removeItem("loggedUser");
-
+    window.location.href = "../index.html";
 };
 
 
-// get stored user, returns null if user not logged in
+// get a user with an email/password
 export function getUser(email, password) {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -49,9 +51,9 @@ export function getUser(email, password) {
     xhttp.open("GET", "../scripts/get_user.php?user_email=" + email + "&user_password=" + password, true);
     xhttp.send();
 
-
 };
 
+// get the full list of users
 export function getUserlist() {
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -65,6 +67,7 @@ export function getUserlist() {
 
 };
 
+// create a new user
 export function createUser(fname, lname, pass, useremail, usergrp) {
 
     const request = new XMLHttpRequest();
@@ -80,6 +83,7 @@ export function createUser(fname, lname, pass, useremail, usergrp) {
 
 };
 
+// update a user using their user_id
 export function updateUser(userid, fname, lname, pass, useremail, usergrp) {
 
     const request = new XMLHttpRequest();

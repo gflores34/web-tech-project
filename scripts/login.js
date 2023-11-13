@@ -2,6 +2,7 @@ let registerForm = document.getElementById("registerForm");
 let signinForm = document.getElementById("signinForm");
 import { createUser, getUser, setUser } from "./user.js";
 
+// handle register
 registerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -17,6 +18,7 @@ registerForm.addEventListener("submit", (e) => {
     window.location.href = "../index.html";
 });
 
+// handle sign in
 signinForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
