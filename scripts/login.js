@@ -11,6 +11,9 @@ registerForm.addEventListener("submit", (e) => {
     let userlastname = document.getElementById('register-last_name');
 
     createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
+
+    let currUser = getUser(useremail.value, userpassword.value);
+    setUser(currUser);
     window.location.href = "../index.html";
 });
 

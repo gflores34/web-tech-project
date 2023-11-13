@@ -80,9 +80,18 @@ export function createUser(fname, lname, pass, useremail, usergrp) {
 
 };
 
-export function updateUser() {
+export function updateUser(userid, fname, lname, pass, useremail, usergrp) {
 
-
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.status === 200) {
+        console.log("response: " + this.responseText);
+        }
+        }
+    request.open("POST", "../scripts/update_user.php", true);
+    var postData = {user_id: userid, firstname: fname, lastname: lname, password: pass, email: useremail, usergroup: usergrp };
+    console.log(JSON.stringify(postData));
+    request.send(JSON.stringify(postData));
 
 };
 
