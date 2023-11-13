@@ -11,7 +11,7 @@
 
 // sets current user, stores in localsession
 export function setUser(user) {
-    localStorage.setItem("loggedUser", user);
+    localStorage.setItem("loggedUser", JSON.stringify(user));
 };
 
 // get currently logged in user, returns null if user not logged in
@@ -19,7 +19,7 @@ export function getLoggedUser() {
     let user = localStorage.getItem("loggedUser");
 
     if (user) {
-        return user;
+        return JSON.parse(user);
     } else {
         return null;
     }
@@ -51,6 +51,7 @@ export function getUser(email, password) {
                 last_name: dataParse[0].last_name
             }
             console.log(user);
+            logoutUser();
             setUser(user);
             return user;
         }
