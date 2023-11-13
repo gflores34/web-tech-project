@@ -6,7 +6,7 @@
     <title>login/register</title>
     <link rel="stylesheet" href="../styles/login.css">
     <link rel="stylesheet" href="../styles/style.css">
-    <script defer src="../scripts/login.js"></script>
+    <script defer type="module" src="../scripts/login.js"></script>
 </head>
 <body>
     <div class="header">
@@ -48,30 +48,31 @@
     <div class="login-container">
         <div class="register-container">
 
-            <form action="" class="register-form">
+            <form action="" id="registerForm" class="register-form">
                 <h1>Register</h1>
                 <p>email:</p>
-                <input class="register-email" type="text" name="email">
+                <input class="register-email" type="text" Id="register-email">
                 <p>first name:</p>
-                <input class="register-firstname" type="text" name="first_name">
+                <input class="register-firstname" type="text" Id="register-first_name">
                 <p>last name:</p>
-                <input class="register-lastname" type="text" name="last_name">
+                <input class="register-lastname" type="text" Id="register-last_name">
                 <p>password:</p>
-                <input class="register-password" type="text" name="password">
-                <button class="submit-button">Submit</button>
+                <input class="register-password" type="text" Id="register-password">
+                
+                <input type="submit" class="submit-button" value="Submit">
             </form>
 
         </div>
 
         <div class="signin-container">
 
-            <form action="" class="signin-form">
+            <form action="" id="signinForm" class="signin-form">
                 <h1>Login</h1>
                 <p>email:</p>
-                <input class="register-email" type="text" name="email">
+                <input class="register-email" type="text" Id="signin-email">
                 <p>password:</p>
-                <input class="register-password" type="text" name="password">
-                <button class="submit-button">Submit</button>
+                <input class="register-password" type="text" Id="signin-password">
+                <input type="submit" class="submit-button" value="Submit">
             </form>
 
         </div>
