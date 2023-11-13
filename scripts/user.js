@@ -9,12 +9,12 @@
     };
 */
 
-// sets current user, stores in cookies
+// sets current user, stores in localsession
 export function setUser(user) {
     localStorage.setItem("loggedUser", user);
 };
 
-// get currently logged in user
+// get currently logged in user, returns null if user not logged in
 export function getLoggedUser() {
     let user = localStorage.getItem("loggedUser");
 
