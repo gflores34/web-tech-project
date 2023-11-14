@@ -25,6 +25,13 @@
 .book-details-list {
     list-style-position: outside;
     list-style-type: none;
+    margin-left: -30px;
+}
+
+.book-details-list>li {
+    margin-top:10px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .center{
