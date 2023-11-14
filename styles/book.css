@@ -10,6 +10,7 @@
 
 .book-author {
     margin-top: 0;
+    margin-bottom: 300px;
 }
 
 .book-cover {
@@ -31,6 +32,19 @@
 .book-details-list>li {
     margin-top:10px;
     margin-bottom: 10px;
+}
+
+.quantity-input {
+    width: 35px;
+}
+
+.cart-form > input {
+    margin-top: 20px;
+}
+
+.add-to-cart-button {
+    padding: 15px;
+    background-color: yellow;
 }
 
 .center{
