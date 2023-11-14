@@ -83,12 +83,12 @@ function generate_books(dataArray){
         image.src = dataArray[i].ImagePath;
         newBook.appendChild(image);
 
-	var br = document.createElement("br");
-	newBook.appendChild(br);
+	    var br = document.createElement("br");
+	    newBook.appendChild(br);
 
         var p1 = document.createElement("a");
         p1.classList.add("book-title");
-	p1.href = "./book.html?" + dataArray[i].ISBN;
+	    p1.href = "./book.html?" + dataArray[i].ISBN;
         var titleText = document.createTextNode(dataArray[i].Title);
         p1.appendChild(titleText);
         newBook.appendChild(p1);
