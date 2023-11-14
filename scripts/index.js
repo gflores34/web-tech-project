@@ -60,7 +60,7 @@ function get_all_books(){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
-
+	
         generate_books(dataParse);
 
         //document.getElementById(bookId).innerHTML = this.responseText;
@@ -83,8 +83,9 @@ function generate_books(dataArray){
         image.src = dataArray[i].ImagePath;
         newBook.appendChild(image);
 
-        var p1 = document.createElement("p");
+        var p1 = document.createElement("a");
         p1.classList.add("book-title");
+	p1.href = "./book.html?" + dataArray[i].ISBN;
         var titleText = document.createTextNode(dataArray[i].Title);
         p1.appendChild(titleText);
         newBook.appendChild(p1);
@@ -132,6 +133,6 @@ function genreHandler(){
 }
 
 
-genreHandler();
+//genreHandler();
 get_all_books();
 set_featured_books("Harry Potter and the Sorcerer's Stone", "Dune", "The Road", "A Song of Ice and Fire");
