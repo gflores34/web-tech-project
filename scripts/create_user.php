@@ -26,6 +26,8 @@ $usergroup = $data->usergroup;
 
 $query="INSERT INTO Users (first_name, last_name, password, email, usergroup) VALUES (\"$firstname\", \"$lastname\", \"$password\", \"$email\", \"$usergroup\")";
 
+$result = $db_conn->query($query);
+
 echo "finished";
 
 $db_conn->close();
