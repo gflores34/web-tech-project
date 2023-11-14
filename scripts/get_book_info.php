@@ -16,7 +16,7 @@ if (mysqli_connect_errno())
     exit();
 }
 
-$book_title = $_GET['title']; 
+$book_isbn = $_GET['isbn']; 
 
 $query = "SELECT Books.ISBN, Books.Title, Books.BookSubject, Books.Pages, Books.SellingPrice, Authors.Name, Publishers.CompanyName 
 FROM Books 

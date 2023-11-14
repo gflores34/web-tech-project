@@ -2,8 +2,8 @@
 
 <head>
     <title>Cheap Books</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <script defer src="./scripts/index.js"></script>
+    <link rel="stylesheet" href="./styles/book.css">
+    <script defer src="./scripts/book.js"></script>
 </head>
 
 
@@ -46,48 +46,23 @@
         </div>
     </div>
     <div class="center">
-        <div>
-            <h2>Featured Books</h2>
+
+        <div class="book" id="book">
+        <h1 id="book-title" class="book-title">
+            <img id="book-cover" class="book-cover" src="./book_images/a_clash_of_kings.jpg" width="300">
+            Book Title
+        </h1>
+        <p class="book-author">by: author name</p>
         </div>
 
-        <div class="featured-books">
-            <div class="book">
-                <img class="cover-image" id="featured1-image" src="">
-                <p class="book-title" id="featured1-title">Harry Potter and the Sorcerer's Stone</p>
-                <p class="book-author" id="featured1-author"></p>
-                <p class="price" id="featured1-price">$0.00</p>
-            </div>
-            <span></span>
-            <div class="book">
-                <img class="cover-image" id="featured2-image" src="">
-                <p class="book-title" id="featured2-title">Dune</p>
-                <p class="book-author" id="featured2-author"></p>
-                <p class="price" id="featured2-price">$0.00</p>
-            </div>
-            <span></span>
-            <div class="book">
-                <img class="cover-image" id="featured3-image" src="">
-                <p class="book-title" id="featured3-title">The Road</p>
-                <p class="book-author" id="featured3-author"></p>
-                <p class="price" id="featured3-price">$0.00</p>
-            </div>
-            <span></span>
-            <div class="book">
-                <img class="cover-image" id="featured4-image" src="">
-                <p class="book-title" id="featured4-title">A Song of Ice and Fire</p>
-                <p class="book-author" id="featured4-author"></p>
-                <p class="price" id="featured4-price">$0.00</p>
-            </div>
-            <span></span>
-        </div>
+        <div class="book-details">
+            <h2>Details</h2>
+            <ul class="book-details-list">
+                <li id="book-isbn">
+                    ISBN: 
+                </li>
+            </ul>
 
-        <div>
-            <h2>All Books</h2>
-        </div>
-
-
-        <div class="all-books" id="all-books">
-            
         </div>
     </div>
 </body>
