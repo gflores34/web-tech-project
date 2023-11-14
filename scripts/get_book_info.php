@@ -18,10 +18,11 @@ if (mysqli_connect_errno())
 
 $book_isbn = $_GET['isbn']; 
 
-$query = "SELECT Books.ISBN, Books.Title, Books.BookSubject, Books.Pages, Books.SellingPrice, Authors.Name, Publishers.CompanyName 
+$query = "SELECT Books.ISBN, Books.Title, Books.BookSubject, Books.Pages, Books.SellingPrice, Authors.Name, Publishers.CompanyName, Images.ImagePath 
 FROM Books 
 INNER JOIN Authors ON Books.AuthorId = Authors.AuthorId 
-INNER JOIN Publishers ON Books.PublisherId = Publishers.PublisherId 
+INNER JOIN Publishers ON Books.PublisherId = Publishers.PublisherId
+INNER JOIN Images ON Books.ISBN = Images.ISBN
 WHERE Books.ISBN = \"$book_isbn\"";
 
 
