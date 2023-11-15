@@ -18,7 +18,7 @@ if (mysqli_connect_errno())
 
 $genre = $_GET['genre'];
 
-$query="SELECT Books.Title, Books.SellingPrice, Authors.Name, Images.ImagePath FROM Books INNER JOIN Images ON Books.ISBN = Images.ISBN INNER JOIN Authors ON Books.AuthorId
+$query="SELECT Books.Title, Books.SellingPrice, Authors.Name, Images.ImagePath, Books.ISBN FROM Books INNER JOIN Images ON Books.ISBN = Images.ISBN INNER JOIN Authors ON Books.AuthorId
 = Authors.AuthorId WHERE Books.BookSubject = \"$genre\"";
 
 $result = $db_conn->query($query);
