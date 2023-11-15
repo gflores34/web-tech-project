@@ -15,7 +15,7 @@ function get_all_genre_books(genre){
 
 function generate_books(dataArray){
 
-    var node = document.getElementById("genre-books");
+    var node = document.getElementById("all-books");
     
     for(let i = 0; i < dataArray.length; i++){
 
@@ -27,8 +27,12 @@ function generate_books(dataArray){
         image.src = dataArray[i].ImagePath;
         newBook.appendChild(image);
 
-        var p1 = document.createElement("p");
+	    var br = document.createElement("br");
+	    newBook.appendChild(br);
+
+        var p1 = document.createElement("a");
         p1.classList.add("book-title");
+	    p1.href = "./book.html?" + dataArray[i].ISBN;
         var titleText = document.createTextNode(dataArray[i].Title);
         p1.appendChild(titleText);
         newBook.appendChild(p1);
@@ -48,6 +52,7 @@ function generate_books(dataArray){
         node.appendChild(newBook);
 
     }
+
 
 }
 
