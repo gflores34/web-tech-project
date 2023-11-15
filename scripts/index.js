@@ -36,22 +36,43 @@ function set_featured_books(book1, book2, book3, book4){
 	set_author(book1, "featured1-author");
 	set_image(book1, "featured1-image");
 	set_price(book1, "featured1-price");
-	document.getElementById("featured1-title").innerHTML = book1;
+    title_link = document.getElementById("featured1-title");
+	title_link.innerHTML = book1;
+    set_book_isbn(title_link);
 
 	set_author(book2, "featured2-author");
 	set_image(book2, "featured2-image");
 	set_price(book2, "featured2-price");
-	document.getElementById("featured2-title").innerHTML = book2;
+	title_link2 = document.getElementById("featured1-title");
+	title_link2.innerHTML = book2;
+    set_book_isbn(title_link2);
 
 	set_author(book3, "featured3-author");
 	set_image(book3, "featured3-image");
 	set_price(book3, "featured3-price");
-	document.getElementById("featured3-title").innerHTML = book3;
+	title_link3 = document.getElementById("featured1-title");
+	title_link3.innerHTML = book3;
+    set_book_isbn(title_link3);
 
 	set_author(book4, "featured4-author");
 	set_image(book4, "featured4-image");
 	set_price(book4, "featured4-price");
-	document.getElementById("featured4-title").innerHTML = book4;
+	title_link4 = document.getElementById("featured1-title");
+	title_link4.innerHTML = book4;
+    set_book_isbn(title_link4);
+}
+
+function set_book_isbn(title){
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        var data = this.response;
+        var dataParse = JSON.parse(data);
+		
+	    title.href = "./book.html?" + data[0].Title;
+        
+    }
+    xhttp.open("GET", "./scripts/get_book.php?title=" + title, true);
+    xhttp.send();
 }
 
 
