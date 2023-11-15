@@ -67,7 +67,7 @@ function set_book_isbn(title, element){
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
-		console.log(dataParse[0].ISBN);
+        
 	    element.href = "./book.html?" + dataParse[0].ISBN;
         
     }
