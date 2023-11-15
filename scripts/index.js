@@ -68,7 +68,7 @@ function set_book_isbn(title){
         var data = this.response;
         var dataParse = JSON.parse(data);
 		
-	    title.href = "./book.html?" + data[0].Title;
+	    title.href = "./book.html?" + data[0].ISBN;
         
     }
     xhttp.open("GET", "./scripts/get_book.php?title=" + title, true);
