@@ -15,7 +15,7 @@ function get_all_genre_books(genre){
 
 function generate_books(dataArray){
 
-    var node = document.getElementById("all-books");
+    var node = document.getElementById("all-genres");
     
     for(let i = 0; i < dataArray.length; i++){
 
