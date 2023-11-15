@@ -16,4 +16,15 @@ function set_book_info(isbn){
 }
 
 
-set_book_info("9781338878929");
+function page_set(){
+
+    let url = document.URL;
+    let book_isbn = url.split('?').pop()
+    book_isbn = book_isbn.replace(/_/g," ");
+    set_book_info(book_isbn);
+
+
+}
+
+
+page_set();
