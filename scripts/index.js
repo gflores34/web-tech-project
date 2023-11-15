@@ -62,13 +62,13 @@ function set_featured_books(book1, book2, book3, book4){
     set_book_isbn(title_link4);
 }
 
-function set_book_isbn(title){
+function set_book_isbn(title, element){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         var data = this.response;
         var dataParse = JSON.parse(data);
 		console.log(dataParse[0].ISBN);
-	    title.href = "./book.html?" + dataParse[0].ISBN;
+	    element.href = "./book.html?" + dataParse[0].ISBN;
         
     }
     xhttp.open("GET", "./scripts/get_book.php?title=" + title, true);
