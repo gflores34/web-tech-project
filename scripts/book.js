@@ -1,3 +1,18 @@
+import { addItem } from "./cart.js";
+import { getLoggedUser } from "./user.js";
+
+if (getLoggedUser() !== null) {
+    document.getElementById("loginButton").style.visibility="hidden";
+} else {
+    document.getElementById("logoutButton").style.visibility="hidden";
+}
+
+let url = document.URL;
+let bookisbn = url.split('?').pop();
+bookisbn = bookisbn.replace(/_/g," ");
+let idElement = document.getElementById("book_id");
+idElement.value = bookisbn;
+
 function set_book_info(isbn){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -26,5 +41,15 @@ function page_set(){
 
 }
 
+cartForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let quantity = document.getElementById('quantity').value;
+    let bookisbn = document.getElementById('book_id').value;
+
+    console.log("Adding: " + bookisbn + " with quantity: " + quantity);
+    addItem(bookisbn, quantity);
+
+});
 
 page_set();

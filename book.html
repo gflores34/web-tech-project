@@ -3,7 +3,7 @@
 <head>
     <title>Cheap Books</title>
     <link rel="stylesheet" href="./styles/book.css">
-    <script defer src="./scripts/book.js"></script>
+    <script defer type="module" src="./scripts/book.js"></script>
 </head>
 
 
@@ -38,7 +38,8 @@
             </div>
 
             <div class="links">
-                <a href="./pages/login.html">login</a>
+                <a id="loginButton" href="./pages/login.html">login</a>
+                <a id="logoutButton" onclick="logoutUser()" href="./pages/login.html">log out</a>
                 <a>|</a>
                 <a href="./pages/cart.html">cart</a>
             </div>
@@ -54,11 +55,12 @@
         </h1>
         <p id="book-author" class="book-author">by: author name</p>
 
-        <form class="cart-form">
+        <form class="cartForm" id="cartForm">
             <label for="quantity" >Quantity: </label>
-            <input class="quantity-input" name="quantity" type="number" value="1">
+            <input id="quantity" class="quantity-input" name="quantity" type="number" value="1">
+            <input type="text" style="visibility: hidden;" name="book_id" id="book_id">
             <br>
-            <input class="add-to-cart-button" type="button" value="add to cart">
+            <input class="add-to-cart-button" type="submit" value="add to cart">
         </form>
 
         </div>

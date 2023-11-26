@@ -1,6 +1,8 @@
 let registerForm = document.getElementById("registerForm");
 let signinForm = document.getElementById("signinForm");
-import { createUser, getLoggedUser, getUser, setUser } from "./user.js";
+import { createUser, getLoggedUser, getUser, setUser, logoutUser } from "./user.js";
+
+logoutUser();
 
 // handle register
 registerForm.addEventListener("submit", (e) => {
@@ -15,11 +17,12 @@ registerForm.addEventListener("submit", (e) => {
 
     let currUser = getUser(useremail.value, userpassword.value);
 
-    if (getLoggedUser() == null) {
+    if (getLoggedUser() === null) {
         console.log("failed to find user");
     } else {
         window.location.href = "../index.html";
     }
+    window.location.href = "../index.html";
 });
 
 // handle sign in
@@ -33,9 +36,10 @@ signinForm.addEventListener("submit", (e) => {
     let currUser = getUser(useremail.value, userpassword.value);
     console.log(currUser);
 
-    if (getLoggedUser() == null) {
+    if (getLoggedUser() === null) {
         console.log("failed to find user");
     } else {
         window.location.href = "../index.html";
     }
+    window.location.href = "../index.html";
 });

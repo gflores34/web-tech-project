@@ -11,14 +11,14 @@
 
 // sets current user, stores in localsession
 export function setUser(user) {
-    localStorage.setItem("loggedUser", JSON.stringify(user));
+    localStorage.setItem("persistUser", JSON.stringify(user));
 };
 
 // get currently logged in user, returns null if user not logged in
 export function getLoggedUser() {
-    let user = localStorage.getItem("loggedUser");
-
-    if (user) {
+    let user = localStorage.getItem("persistUser");
+    // console.log(user);
+    if (user !== undefined) {
         return JSON.parse(user);
     } else {
         return null;
@@ -28,8 +28,7 @@ export function getLoggedUser() {
 
 // log the user out, goes back to home page
 export function logoutUser() {
-    localStorage.removeItem("loggedUser");
-    window.location.href = "../index.html";
+    localStorage.removeItem("persistUser");
 };
 
 

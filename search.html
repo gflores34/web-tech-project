@@ -3,7 +3,7 @@
 <head>
     <title>Search</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <script defer src="./scripts/search.js"></script>
+    <script defer type="module" src="./scripts/search.js"></script>
 </head>
 
 
@@ -38,7 +38,8 @@
             </div>
 
             <div class="links">
-                <a href="./pages/login.html">login</a>
+                <a id="loginButton" href="./pages/login.html">login</a>
+                <a id="logoutButton" onclick="logoutUser()" href="./pages/login.html">log out</a>
                 <a>|</a>
                 <a href="./pages/cart.html">cart</a>
             </div>

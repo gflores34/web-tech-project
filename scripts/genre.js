@@ -1,3 +1,11 @@
+import { getLoggedUser } from "./user.js";
+
+if (getLoggedUser() !== null) {
+    document.getElementById("loginButton").style.visibility="hidden";
+} else {
+    document.getElementById("logoutButton").style.visibility="hidden";
+}
+
 function get_all_genre_books(genre){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {

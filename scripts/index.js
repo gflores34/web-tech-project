@@ -1,3 +1,12 @@
+import { getLoggedUser } from "./user.js";
+
+if (getLoggedUser() !== null) {
+    document.getElementById("loginButton").style.visibility="hidden";
+} else {
+    document.getElementById("logoutButton").style.visibility="hidden";
+}
+
+
 function set_image(title, book_id){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
@@ -36,28 +45,28 @@ function set_featured_books(book1, book2, book3, book4){
 	set_author(book1, "featured1-author");
 	set_image(book1, "featured1-image");
 	set_price(book1, "featured1-price");
-    title_link = document.getElementById("featured1-title");
+    let title_link = document.getElementById("featured1-title");
 	title_link.innerHTML = book1;
     set_book_isbn(book1, title_link);
 
 	set_author(book2, "featured2-author");
 	set_image(book2, "featured2-image");
 	set_price(book2, "featured2-price");
-	title_link2 = document.getElementById("featured2-title");
+	let title_link2 = document.getElementById("featured2-title");
 	title_link2.innerHTML = book2;
     set_book_isbn(book2, title_link2);
 
 	set_author(book3, "featured3-author");
 	set_image(book3, "featured3-image");
 	set_price(book3, "featured3-price");
-	title_link3 = document.getElementById("featured3-title");
+	let title_link3 = document.getElementById("featured3-title");
 	title_link3.innerHTML = book3;
     set_book_isbn(book3, title_link3);
 
 	set_author(book4, "featured4-author");
 	set_image(book4, "featured4-image");
 	set_price(book4, "featured4-price");
-	title_link4 = document.getElementById("featured4-title");
+	let title_link4 = document.getElementById("featured4-title");
 	title_link4.innerHTML = book4;
     set_book_isbn(book4, title_link4);
 }
