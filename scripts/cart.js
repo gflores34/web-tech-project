@@ -26,3 +26,9 @@ export function getItems() {
     return JSON.parse(cartdata);
 
 };
+
+export function emptyCart() {
+
+    localStorage.removeItem("cart");
+
+};

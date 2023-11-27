@@ -9,17 +9,19 @@
     };
 */
 
-// sets current user, stores in localsession
+// note: should use an proper authentication token for a site handling real customer data
+
+// sets current user_id, stores in localsession
 export function setUser(user) {
-    localStorage.setItem("persistUser", JSON.stringify(user));
+    localStorage.setItem("persistUser", JSON.stringify(user.user_id));
 };
 
-// get currently logged in user, returns null if user not logged in
+// get currently logged in user_id, returns null if user not logged in
 export function getLoggedUser() {
-    let user = localStorage.getItem("persistUser");
+    let userid = localStorage.getItem("persistUser");
     // console.log(user);
-    if (user !== undefined) {
-        return JSON.parse(user);
+    if (userid !== undefined) {
+        return JSON.parse(userid);
     } else {
         return null;
     }
@@ -106,4 +108,3 @@ export function updateUser(userid, fname, lname, pass, useremail, usergrp) {
     request.send(JSON.stringify(postData));
 
 };
-
