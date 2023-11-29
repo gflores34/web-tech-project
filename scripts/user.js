@@ -9,7 +9,7 @@
     };
 */
 
-// note: should use an proper authentication token for a site handling real customer data
+// note: should use an proper authentication token for a site handling real customer data (i just mimick this with multiplying and dividing by a random number when setting/getting the user)
 
 // sets current user_id, stores in localsession
 export function setUser(user) {
