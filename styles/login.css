@@ -22,7 +22,7 @@
 .signin-container {
     text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 20vw;
     height: 10vh;
     margin-right: 30%;
@@ -41,11 +41,11 @@
 }
 
 .submit-button {
-    width: 50%;
+    max-width: 50%;
     margin-top: 3px;
 }
 
 .resetPassword {
-    width: 50%;
+    max-width: 50%;
     margin-top: 3px;
 }

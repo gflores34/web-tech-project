@@ -1,11 +1,12 @@
 let registerForm = document.getElementById("registerForm");
 let signinForm = document.getElementById("signinForm");
+let resetPassword = document.getElementById("resetPassword");
 import { createUser, getLoggedUser, getUser, setUser, logoutUser } from "./user.js";
 
 logoutUser();
 
 // handle register
-registerForm.addEventListener("submit", (e) => {
+registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     let useremail = document.getElementById('register-email');
@@ -13,25 +14,18 @@ registerForm.addEventListener("submit", (e) => {
     let userfirstname = document.getElementById('register-first_name');
     let userlastname = document.getElementById('register-last_name');
 
-    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0)
-    .then()
-    .catch(err => {
-        console.log(err);
-    });
+    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
 
-    getUser(useremail.value, userpassword.value).then(user => {
-        console.log(user);
+    await getUser(useremail.value, userpassword.value, function(user) { 
         if (user === null) {
             // display error
             return;
         } else {
             setUser(user);
+            // console.log(user);
             window.location.href = "../index.html";
         }
-
-    }).catch(err => {
-        console.log(err);
-    });
+    })
 });
 
 // handle sign in
@@ -49,8 +43,15 @@ signinForm.addEventListener("submit", async (e) => {
             return;
         } else {
             setUser(user);
-            console.log(user);
+            // console.log(user);
             window.location.href = "../index.html";
         }
     })
+});
+
+// handle reset password
+resetPassword.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    window.location.href = "./resetpassword.html";
 });

@@ -58,7 +58,7 @@ export async function getUser(email, password, callback) {
             if (xhttp.status >= 200 && xhttp.status < 300) {
             var data = this.response;
             var dataParse = JSON.parse(data);
-            console.log(dataParse);
+            // console.log(dataParse);
             if (dataParse[0] === undefined || dataParse[0] === null || Object.keys(dataParse[0]).length === 0) {
                 callback(null);
             } else {
@@ -107,7 +107,7 @@ export function createUser(fname, lname, pass, useremail, usergrp) {
         }
     request.open("POST", "../scripts/create_user.php", true);
     var postData = {firstname: fname, lastname: lname, password: pass, email: useremail, usergroup: usergrp };
-    console.log(JSON.stringify(postData));
+    // console.log(JSON.stringify(postData));
     request.send(JSON.stringify(postData));
 
 };
