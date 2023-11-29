@@ -13,33 +13,44 @@ registerForm.addEventListener("submit", (e) => {
     let userfirstname = document.getElementById('register-first_name');
     let userlastname = document.getElementById('register-last_name');
 
-    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
+    createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0)
+    .then()
+    .catch(err => {
+        console.log(err);
+    });
 
-    let currUser = getUser(useremail.value, userpassword.value);
+    getUser(useremail.value, userpassword.value).then(user => {
+        console.log(user);
+        if (user === null) {
+            // display error
+            return;
+        } else {
+            setUser(user);
+            window.location.href = "../index.html";
+        }
 
-    if (getLoggedUser() === null) {
-        console.log("failed to find user");
-    } else {
-        window.location.href = "../index.html";
-    }
-    window.location.href = "../index.html";
+    }).catch(err => {
+        console.log(err);
+    });
 });
 
 // handle sign in
-signinForm.addEventListener("submit", (e) => {
+signinForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     let useremail = document.getElementById('signin-email');
     let userpassword = document.getElementById('signin-password');
     console.log(useremail.value + " " + userpassword.value);
 
-    let currUser = getUser(useremail.value, userpassword.value);
-    console.log(currUser);
-
-    if (getLoggedUser() === null) {
-        console.log("failed to find user");
-    } else {
-        window.location.href = "../index.html";
-    }
-    window.location.href = "../index.html";
+    await getUser(useremail.value, userpassword.value, function(user) { 
+        if (user === null) {
+            // display error
+            document.getElementById("passwordError").style = "color: red; visibility: visible;";
+            return;
+        } else {
+            setUser(user);
+            console.log(user);
+            window.location.href = "../index.html";
+        }
+    })
 });

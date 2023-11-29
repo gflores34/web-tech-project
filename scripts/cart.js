@@ -16,7 +16,7 @@ if (userid !== null) {
 // appends an item/quantity
 export function addItem(bookisbn, bookquantity) {
 
-    let currcart = localStorage.getItem("cart");
+    let currcart = sessionStorage.getItem("cart");
     // console.log(currcart);
     
     let item = {
@@ -29,16 +29,23 @@ export function addItem(bookisbn, bookquantity) {
     } else {
         currcart = JSON.parse(currcart);
     }
-    currcart.push(item);
+
+    if (currcart.findIndex(i => i.isbn === bookisbn) !== -1) {
+        let index = currcart.findIndex(i => i.isbn === bookisbn);
+        currcart[index].quantity = Number(currcart[index].quantity) + Number(bookquantity);
+    } else {
+       currcart.push(item); 
+    }
+    
     // console.log(getItems());
-    localStorage.setItem("cart", JSON.stringify(currcart));
+    sessionStorage.setItem("cart", JSON.stringify(currcart));
 
 };
 
 // returns an array of items
 export function getItems() {
 
-    let cartdata = localStorage.getItem("cart");
+    let cartdata = sessionStorage.getItem("cart");
     return JSON.parse(cartdata);
 
 };
@@ -46,18 +53,46 @@ export function getItems() {
 // removes all items from the cart
 export function emptyCart() {
 
-    localStorage.removeItem("cart");
+    sessionStorage.removeItem("cart");
+
+};
+
+export async function getBook(isbn, callback) {
+    return new Promise(function (resolve, reject) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "../scripts/get_book_info.php?isbn=" + isbn, true);
+    
+        xhttp.onload = function() {
+            if (xhttp.status >= 200 && xhttp.status < 300) {
+            var data = this.response;
+            var dataParse = JSON.parse(data);
+            if (Object.keys(dataParse[0]).length === 0) {
+                return null;
+            } else {
+                if (callback) callback(dataParse[0]);
+            }
+        }
+        }
+        xhttp.send();
+    })
 
 };
 
 
-function generateItem(isbn, node, bookquantity) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status === 200) {  
-            var data = this.response;
-            var item = JSON.parse(data)[0];
+export async function displayItems(itemlist) {
 
+    var node = document.getElementById("Item-List");
+    // console.log(itemlist);
+    if (itemlist === null) {
+        return
+    }
+
+    for (let i = 0; i < itemlist.length; i++) {
+        //generateItem(itemlist[i].isbn, node, itemlist[i].quantity);
+        console.log(itemlist[i]);
+        getBook(itemlist[i].isbn, function(item) { 
+            console.log(item);
+            
             var newItem = document.createElement("div");
             newItem.classList.add("List-Item");
             // console.log(item);
@@ -77,36 +112,20 @@ function generateItem(isbn, node, bookquantity) {
 
             var p3 = document.createElement("p");
             p3.classList.add("List-Item-price");
-            var priceText = document.createTextNode("$" + item.SellingPrice * bookquantity);
+            var priceText = document.createTextNode("$" + item.SellingPrice * itemlist[i].quantity);
             p3.appendChild(priceText);
             newItem.appendChild(p3);
 
             var p4 = document.createElement("p");
             p4.classList.add("List-Item-quantity");
-            var quantity = document.createTextNode("Quantity: " + bookquantity);
+            var quantity = document.createTextNode("Quantity: " + itemlist[i].quantity);
             p4.appendChild(quantity);
             newItem.appendChild(p4);
 
             node.appendChild(newItem);
 
-            document.getElementById("cart-total").innerHTML = item.SellingPrice * bookquantity + Number(document.getElementById("cart-total").innerHTML);
-        }
-
-    }
-    xhttp.open("GET", "../scripts/get_book_info.php?isbn=" + isbn, true);
-    xhttp.send();
-};
-
-export function displayItems(itemlist) {
-
-    var node = document.getElementById("Item-List");
-    // console.log(itemlist);
-    if (itemlist === null) {
-        return
-    }
-
-    for (let i = 0; i < itemlist.length; i++) {
-        generateItem(itemlist[i].isbn, node, itemlist[i].quantity);
+            document.getElementById("cart-total").innerHTML = item.SellingPrice * itemlist[i].quantity + Number(document.getElementById("cart-total").innerHTML);
+        })
     }
 
 

@@ -50,31 +50,35 @@ export function logoutUser() {
 
 
 // get a user with an email/password
-export function getUser(email, password) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        var data = this.response;
-        var dataParse = JSON.parse(data);
-	    console.log(dataParse[0].first_name);
-        if (!dataParse[0].user_id) {
-            return null;
-        } else {
-            let user = {
-                usergroup: dataParse[0].usergroup,
-                email: dataParse[0].email,
-                user_id: dataParse[0].user_id,
-                first_name: dataParse[0].first_name,
-                last_name: dataParse[0].last_name
+export async function getUser(email, password, callback) {
+    return new Promise(function (resolve, reject) {
+        const xhttp = new XMLHttpRequest();
+    
+        xhttp.onload = function() {
+            if (xhttp.status >= 200 && xhttp.status < 300) {
+            var data = this.response;
+            var dataParse = JSON.parse(data);
+            console.log(dataParse);
+            if (dataParse[0] === undefined || dataParse[0] === null || Object.keys(dataParse[0]).length === 0) {
+                callback(null);
+            } else {
+                let user = {
+                    usergroup: dataParse[0].usergroup,
+                    email: dataParse[0].email,
+                    user_id: dataParse[0].user_id,
+                    first_name: dataParse[0].first_name,
+                    last_name: dataParse[0].last_name
+                }
+                // console.log(user);
+                logoutUser();
+                setUser(user);
+                if (callback) callback(user);
             }
-            console.log(user);
-            logoutUser();
-            setUser(user);
-            return user;
         }
-        
-    }
-    xhttp.open("GET", "../scripts/get_user.php?user_email=" + email + "&user_password=" + password, true);
-    xhttp.send();
+        }
+        xhttp.open("GET", "../scripts/get_user.php?user_email=" + email + "&user_password=" + password);
+        xhttp.send();
+    })
 
 };
 
