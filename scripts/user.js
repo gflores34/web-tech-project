@@ -83,16 +83,25 @@ export async function getUser(email, password, callback) {
 };
 
 // get the full list of users
-export function getUserlist() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        var data = this.response;
-        var dataParse = JSON.parse(data);
-	    console.log(dataParse);
-        return dataParse;
-    }
-    xhttp.open("GET", "../scripts/get_users.php?", true);
-    xhttp.send();
+export async function getUserList(callback) {
+    return new Promise(function (resolve, reject) {
+        const xhttp = new XMLHttpRequest();
+    
+        xhttp.onload = function() {
+            if (xhttp.status >= 200 && xhttp.status < 300) {
+            var data = this.response;
+            var dataParse = JSON.parse(data);
+            // console.log(dataParse);
+            if (dataParse === undefined || dataParse === null) {
+                callback(null);
+            } else {
+                if (callback) callback(dataParse);
+            }
+        }
+        }
+        xhttp.open("GET", "../scripts/get_users.php");
+        xhttp.send();
+    })
 
 };
 
@@ -117,7 +126,7 @@ export function updateUser(userid, fname, lname, pass, useremail, usergrp) {
 
     const request = new XMLHttpRequest();
     request.onreadystatechange = function() {
-        if (request.status === 200) {
+        if (request.status === 200 && request.readyState === 4) {
         console.log("response: " + this.responseText);
         }
         }

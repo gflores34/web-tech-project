@@ -34,9 +34,10 @@ signinForm.addEventListener("submit", async (e) => {
 
     let useremail = document.getElementById('signin-email');
     let userpassword = document.getElementById('signin-password');
-    console.log(useremail.value + " " + userpassword.value);
+    // console.log(useremail.value + " " + userpassword.value);
 
     await getUser(useremail.value, userpassword.value, function(user) { 
+        
         if (user === null) {
             // display error
             document.getElementById("passwordError").style = "color: red; visibility: visible;";

@@ -20,12 +20,13 @@ if (mysqli_connect_errno())
 $data = json_decode(file_get_contents("php://input"));
 $firstname = $data->firstname;
 $lastname = $data->lastname;
-$password = $data->password;
+$pass = $data->password;
 $email = $data->email;
 $usergroup = $data->usergroup;
 $userid = $data->user_id;
 
-$query="UPDATE Users SET firstname = \"$firstname\", last_name = \"$lastname\", password = \"$password\", email = \"$email\", usergroup = \"$usergroup\" WHERE user_id = userid";
+$query="UPDATE Users SET first_name = \"$firstname\", last_name = \"$lastname\", password = \"$pass\", email = \"$email\", usergroup = \"$usergroup\" WHERE user_id = \"$userid\"";
+$result = $db_conn->query($query);
 
 echo "finished updating user";
 
