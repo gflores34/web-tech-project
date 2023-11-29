@@ -13,24 +13,39 @@
 
 // sets current user_id, stores in localsession
 export function setUser(user) {
-    localStorage.setItem("persistUser", JSON.stringify(user.user_id));
+    // localStorage.setItem("persistUser", JSON.stringify(user.user_id));
+    const d = new Date();
+    // expire after 1 week
+    d.setTime(d.getTime() + 7*24*60*60*1000);
+    document.cookie = "userAuth=" + (user.user_id * 138) + "; expires=" + d.toUTCString + ";path=/"  
 };
 
 // get currently logged in user_id, returns null if user not logged in
 export function getLoggedUser() {
-    let userid = localStorage.getItem("persistUser");
-    // console.log(user);
-    if (userid !== undefined) {
-        return JSON.parse(userid);
-    } else {
-        return null;
+    // let userid = localStorage.getItem("persistUser");
+    let cookie = document.cookie.split(';');
+    let name = "userAuth=";
+
+    for(var i=0;i < cookie.length;i++) {
+        var c = cookie[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(name) == 0) {
+            let id = Number(c.substring(name.length,c.length));
+            if (id === 0) {
+                return 0;
+            } else {
+                return id / 138
+            }
+        };
     }
+    return null;
 
 };
 
 // log the user out, goes back to home page
 export function logoutUser() {
-    localStorage.removeItem("persistUser");
+    // localStorage.removeItem("persistUser");
+    document.cookie = "userAuth=;path=/";
 };
 
 

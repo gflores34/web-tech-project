@@ -47,7 +47,7 @@ cartForm.addEventListener("submit", (e) => {
     let quantity = document.getElementById('quantity').value;
     let bookisbn = document.getElementById('book_id').value;
 
-    console.log("Adding: " + bookisbn + " with quantity: " + quantity);
+    // console.log("Adding: " + bookisbn + " with quantity: " + quantity);
     addItem(bookisbn, quantity);
 
 });
