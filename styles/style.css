@@ -47,7 +47,7 @@ span{
 }
 
 .search-input {
-    background: image-set("./images/Search.svg") top right no-repeat;
+    background: image-set("../images/Search.svg") top right no-repeat;
     background-size: 10%;
     height: 30px;
     width: 250px;
