@@ -14,6 +14,11 @@ registerForm.addEventListener("submit", async (e) => {
     let userfirstname = document.getElementById('register-first_name');
     let userlastname = document.getElementById('register-last_name');
 
+    if (useremail.value === "" || userpassword.value === "" || userfirstname.value === "" || userlastname.value === "") {
+        document.getElementById("registerError").style = "color: red; visibility: visible;";
+        return;
+    }
+
     createUser(userfirstname.value, userlastname.value, userpassword.value, useremail.value, 0);
 
     await getUser(useremail.value, userpassword.value, function(user) { 
