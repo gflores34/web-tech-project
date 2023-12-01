@@ -35,28 +35,6 @@ function page_set(){
 
 }
 
-// get the full list of users
-export async function getBookList(callback) {
-    return new Promise(function (resolve, reject) {
-        const xhttp = new XMLHttpRequest();
-    
-        xhttp.onload = function() {
-            if (xhttp.status >= 200 && xhttp.status < 300) {
-            var data = this.response;
-            var dataParse = JSON.parse(data);
-            // console.log(dataParse);
-            if (dataParse === undefined || dataParse === null) {
-                callback(null);
-            } else {
-                if (callback) callback(dataParse);
-            }
-        }
-        }
-        xhttp.open("GET", "../scripts/get_books.php");
-        xhttp.send();
-    })
-};
-
 // create a new user
 export function removeItem(currisbn) {
 
@@ -73,44 +51,14 @@ export function removeItem(currisbn) {
 
 };
 
-cartForm.addEventListener("submit", async (e) => {
+cartForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let quantity = document.getElementById('quantity').value;
     let bookisbn = document.getElementById('book_id').value;
 
     // console.log("Adding: " + bookisbn + " with quantity: " + quantity);
-
-    await getBookList(function(books) {
-        
-        if (books === null) {
-            // display error
-            // console.log("error");
-            return;
-        } else {
-            // console.log(users);
-            let book = -1;
-
-            for (let i = 0; i < books.length; i++) {
-                // console.log(users[i].email, users[i].last_name, email.value, lastname.value);
-                if (Number(books[i].ISBN) === Number(bookisbn)) {
-                    book = books[i];
-                }
-            }
-
-            // console.log(book + book.QuantityOnHand + " : " + quantity);
-
-            if (book !== -1 && (Number(book.QuantityOnHand) >= Number(quantity))) {
-                addItem(bookisbn, quantity);
-                document.getElementById("quantityError").style = "color: red; visibility: hidden;";
-                document.getElementById("successConfirm").style = "color: black; visibility: visible;";
-            } else {
-                document.getElementById("quantityError").style = "color: red; visibility: visible;";
-                document.getElementById("successConfirm").style = "color: black; visibility: hidden;";
-            }
-        }
-    })
-
+    addItem(bookisbn, quantity);
 
 });
 
@@ -120,7 +68,7 @@ removeForm.addEventListener("submit", (e) => {
 
     console.log("removing: " + bookisbn);
     removeItem(bookisbn);
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
 
 });
 
@@ -133,7 +81,7 @@ if (getLoggedUser() !== null) {
         for(let i = 0; i < userlist.length; i++) {
             // console.log(userlist[i].user_id + " : " + userlist[i].usergroup);
             if (Number(userlist[i].user_id) === Number(getLoggedUser()) && Number(userlist[i].usergroup) === 1) {
-                // console.log("User is admin");
+                console.log("User is admin");
                 document.getElementById("remove-button").style.visibility="visible";
             }
         };
