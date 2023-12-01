@@ -68,6 +68,11 @@ function set_featured_books(books){
     // now ignoring passed books, just displaying books with id 1,2,3,4
 
     var node = document.getElementById("featured-books");
+
+    if (node === null) {
+        return;
+    }
+
         for (let i = 0; i < books.length; i += 4) {
             // console.log(books[i]);
             var newBook = document.createElement("div");
