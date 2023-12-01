@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Cheap Books</title>
-    <link rel="stylesheet" href="./styles/book.css">
-    <script defer type="module" src="./scripts/book.js"></script>
+    <title>Genres</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer type="module" src="./scripts/genre.js"></script>
 </head>
 
 
@@ -33,7 +33,7 @@
             <span></span>
             <div class="search-bar">
                 <form action=search.html>
-                    <input placeholder="search" class="search-input" type="text" name="search">
+                    <input class="search-input" placeholder="search" type="text" name="search">
                 </form>
             </div>
 
@@ -49,41 +49,13 @@
         </div>
     </div>
     <div class="center">
-
-        <div class="book" id="book">
-        <h1 id="book-title" class="book-title">
-            <img id="book-cover" class="book-cover" src="" width="300">
-            Book Title
-        </h1>
-        <p id="book-author" class="book-author">by: author name</p>
-
-        <form class="cartForm" id="cartForm">
-            <label for="quantity" >Quantity: </label>
-            <input id="quantity" class="quantity-input" name="quantity" type="number" value="1">
-            <input type="text" style="visibility: hidden;" name="book_id" id="book_id">
-            <br>
-            <input class="add-to-cart-button" type="submit" value="add to cart">
-        </form>
-        <form class="removeForm" id="removeForm">
-            <input class="add-to-cart-button" id="remove-button" type="submit" value="Remove" style="background-color: red; visibility: hidden;">
-        </form>
-
+        <div>
+            <h2 id="genre-title"></h2>
         </div>
 
-        <div class="book-details">
-            <h1>Details</h1>
-            <ul class="book-details-list">
-                <li id="book-isbn">
-                    ISBN: 
-                </li>
-                <li id="book-pages">
-                    Pages:
-                </li>
-                <li id="book-publisher">
-                    Publisher:
-                </li>
-            </ul>
 
+        <div class="genre-books" id="genre-books">
+            
         </div>
     </div>
 </body>
