@@ -99,7 +99,7 @@ export async function displayItems(itemlist) {
 
             var p1 = document.createElement("a");
             p1.classList.add("List-Item-title");
-            p1.href = "./book.html?" + item.ISBN;
+            p1.href = "/book.html?" + item.ISBN;
             var titleText = document.createTextNode(item.Title);
             p1.appendChild(titleText);
             newItem.appendChild(p1);
