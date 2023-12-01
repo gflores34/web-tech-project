@@ -1,6 +1,8 @@
 import { getItems, displayItems, emptyCart } from "./cart.js";
 import { getLoggedUser } from "./user.js";
 
+let orderForm = document.getElementById("place-order-btn");
+
 function displayCartItems() {
     let userid = getLoggedUser();
     let items = getItems();
@@ -22,38 +24,38 @@ function displayCartItems() {
     }
 }
 
-document.getElementById("place-order-btn").addEventListener("click", function (event) {
+orderForm.addEventListener("click", function (event) {
     event.preventDefault();
 
     let items = getItems();
     if (items && items.length > 0) {
-        updateDatabase(items);
+        for (let i = 0; i < items.length; i++) {
+            updateDatabase(items[i]);
+            emptyCart();
+            window.location.href = "../index.html";
+        }
+        
     } else {
         console.log("user cart is empty");
     }
 });
 
-function updateDatabase(items) {
-    const xhttp = new XMLHttpRequest();
-    const url = "../scripts/update_inventory.php";
-    
-    const queryString = items.map(item => `isbn[]=${item.isbn}&quantity[]=${item.quantity}`).join('&');
-    
-    xhttp.open("GET", `${url}?${queryString}`, true);
 
-    xhttp.onload = function () {
-        console.log(this.responseText);
-        if (this.status === 200) {
-            // clear user cart on success
-            emptyCart();
-            // go back to cart or change this if needed
-            window.location.href = '/index.html';
-        } else {
-            console.error('failed to update DB on Place Order:', this.responseText);
+// update a user using their user_id
+export function updateDatabase(item) {
+
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.status === 200 && request.readyState === 4) {
+        console.log("response: " + this.responseText);
         }
-    };
+        }
+    request.open("POST", "../scripts/update_inventory.php", true);
+    // console.log(item);
+    var postData = {currisbn: item.isbn, quantity: item.quantity };
+    console.log(JSON.stringify(postData));
+    request.send(JSON.stringify(postData));
 
-    xhttp.send();
-}
+};
 
 displayCartItems();
