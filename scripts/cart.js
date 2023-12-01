@@ -89,9 +89,9 @@ export async function displayItems(itemlist) {
 
     for (let i = 0; i < itemlist.length; i++) {
         //generateItem(itemlist[i].isbn, node, itemlist[i].quantity);
-        console.log(itemlist[i]);
+        // console.log(itemlist[i]);
         getBook(itemlist[i].isbn, function(item) { 
-            console.log(item);
+            // console.log(item);
             
             var newItem = document.createElement("div");
             newItem.classList.add("List-Item");
