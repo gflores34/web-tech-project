@@ -68,7 +68,7 @@ removeForm.addEventListener("submit", (e) => {
 
     console.log("removing: " + bookisbn);
     removeItem(bookisbn);
-    // window.location.href = "../index.html";
+    window.location.href = "../index.html";
 
 });
 
