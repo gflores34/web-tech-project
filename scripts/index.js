@@ -69,13 +69,12 @@ function set_featured_books(books){
 
     var node = document.getElementById("featured-books");
         for (let i = 0; i < books.length; i += 4) {
-            console.log(books[i]);
+            // console.log(books[i]);
             var newBook = document.createElement("div");
             newBook.classList.add("book");
 
             var image = document.createElement("img");
             image.classList.add("cover-image");
-            console.log(books[i].ImagePath);
             image.src = books[i].ImagePath;
             newBook.appendChild(image);
 
