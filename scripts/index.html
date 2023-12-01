@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Cheap Books</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script defer type="module" src="./scripts/index.js"></script>
+</head>
+
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div>
+                <h1><a class="main-title" href="./index.html">CHEAPBOOKS</a></h1>
+            </div>
+            <span></span>
+            <div class="dropdown">
+                <button class="menu-button"><a class="main-title" href="./all_books.html">All Books</a></button>
+            </div>
+            <span></span>
+            <div class="dropdown">
+                <button class="menu-button">Genres</button>
+                <div class="dropdown-content">
+                    <a href="genre.html?Adventure">Adventure</a>
+                    <a href="genre.html?Childrens_Fiction">Children's Fiction</a>
+                    <a href="genre.html?Fantasy">Fantasy</a>
+                    <a href="genre.html?Romance">Romance</a>
+                    <a href="genre.html?Science_Fiction">Science Fiction</a>
+                    <a href="genre.html?Young_Adult">Young Adult</a>
+                    <a href="genre.html?Biography">Biography</a>
+                </div>
+            </div>
+            <span></span>
+            <div class="search-bar">
+                <form action=search.html>
+                    <input placeholder="search" class="search-input" type="text" name="search">
+                </form>
+            </div>
+
+            <div class="links">
+                <a id="loginButton" href="./pages/login.html">login</a>
+                <a id="logoutButton" onclick="logoutUser()" href="./pages/login.html">log out</a>
+                <a>|</a>
+                <a href="./pages/cart.html">cart</a>
+                <a>|</a>
+                <a href="./pages/help.html">contact us</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="center">
+        <div>
+            <h2>Featured Books</h2>
+        </div>
+
+        <div class="featured-books">
+            <div class="book" id="featured-1">
+                <img class="cover-image" id="featured1-image" src="">
+                <br>
+                <a class="book-title" id="featured1-title">Harry Potter and the Sorcerer's Stone</a>
+                <p class="book-author" id="featured1-author"></p>
+                <p class="price" id="featured1-price">$0.00</p>
+            </div>
+            <span></span>
+            <div class="book" id="featured-2">
+                <img class="cover-image" id="featured2-image" src="">
+                <br>
+                <a class="book-title" id="featured2-title">Dune</a>
+                <p class="book-author" id="featured2-author"></p>
+                <p class="price" id="featured2-price">$0.00</p>
+            </div>
+            <span></span>
+            <div class="book" id="featured-3">
+                <img class="cover-image" id="featured3-image" src="">
+                <br>
+                <a class="book-title" id="featured3-title">The Road</a>
+                <p class="book-author" id="featured3-author"></p>
+                <p class="price" id="featured3-price">$0.00</p>
+            </div>
+            <span></span>
+            <div class="book" id="featured-4">
+                <img class="cover-image" id="featured4-image" src="">
+                <br>
+                <a class="book-title" id="featured4-title">A Song of Ice and Fire</a>
+                <p class="book-author" id="featured4-author"></p>
+                <p class="price" id="featured4-price">$0.00</p>
+            </div>
+            <span></span>
+        </div>
+
+        <div>
+            <h2>All Books</h2>
+        </div>
+
+
+        <div class="all-books" id="all-books">
+            
+        </div>
+    </div>
+</body>
