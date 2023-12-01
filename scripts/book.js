@@ -103,8 +103,10 @@ cartForm.addEventListener("submit", async (e) => {
             if (book !== -1 && (Number(book.QuantityOnHand) >= Number(quantity))) {
                 addItem(bookisbn, quantity);
                 document.getElementById("quantityError").style = "color: red; visibility: hidden;";
+                document.getElementById("successConfirm").style = "color: black; visibility: visible;";
             } else {
                 document.getElementById("quantityError").style = "color: red; visibility: visible;";
+                document.getElementById("successConfirm").style = "color: black; visibility: hidden;";
             }
         }
     })
