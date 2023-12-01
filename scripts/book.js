@@ -85,7 +85,7 @@ cartForm.addEventListener("submit", async (e) => {
         
         if (books === null) {
             // display error
-            console.log("error");
+            // console.log("error");
             return;
         } else {
             // console.log(users);
@@ -98,7 +98,7 @@ cartForm.addEventListener("submit", async (e) => {
                 }
             }
 
-            console.log(book + book.QuantityOnHand + " : " + quantity);
+            // console.log(book + book.QuantityOnHand + " : " + quantity);
 
             if (book !== -1 && (Number(book.QuantityOnHand) >= Number(quantity))) {
                 addItem(bookisbn, quantity);
@@ -133,7 +133,7 @@ if (getLoggedUser() !== null) {
         for(let i = 0; i < userlist.length; i++) {
             // console.log(userlist[i].user_id + " : " + userlist[i].usergroup);
             if (Number(userlist[i].user_id) === Number(getLoggedUser()) && Number(userlist[i].usergroup) === 1) {
-                console.log("User is admin");
+                // console.log("User is admin");
                 document.getElementById("remove-button").style.visibility="visible";
             }
         };
