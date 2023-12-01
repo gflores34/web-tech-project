@@ -1,11 +1,5 @@
 import { addItem } from "./cart.js";
-import { getLoggedUser } from "./user.js";
-
-if (getLoggedUser() !== null) {
-    document.getElementById("loginButton").style.visibility="hidden";
-} else {
-    document.getElementById("logoutButton").style.visibility="hidden";
-}
+import { getLoggedUser, getUserList } from "./user.js";
 
 let url = document.URL;
 let bookisbn = url.split('?').pop();
@@ -41,6 +35,22 @@ function page_set(){
 
 }
 
+// create a new user
+export function removeItem(currisbn) {
+
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.status === 200) {
+        console.log("response: " + this.responseText);
+        }
+        }
+    request.open("POST", "../scripts/remove_book.php", true);
+    var postData = {isbn: currisbn };
+    // console.log(JSON.stringify(postData));
+    request.send(JSON.stringify(postData));
+
+};
+
 cartForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -51,5 +61,34 @@ cartForm.addEventListener("submit", (e) => {
     addItem(bookisbn, quantity);
 
 });
+
+removeForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let bookisbn = document.getElementById('book_id').value;
+
+    console.log("removing: " + bookisbn);
+    removeItem(bookisbn);
+    // window.location.href = "../index.html";
+
+});
+
+
+if (getLoggedUser() !== null) {
+    document.getElementById("loginButton").style.visibility="hidden";
+
+    getUserList(function(userlist) {
+
+        for(let i = 0; i < userlist.length; i++) {
+            // console.log(userlist[i].user_id + " : " + userlist[i].usergroup);
+            if (Number(userlist[i].user_id) === Number(getLoggedUser()) && Number(userlist[i].usergroup) === 1) {
+                console.log("User is admin");
+                document.getElementById("remove-button").style.visibility="visible";
+            }
+        };
+    });
+
+} else {
+    document.getElementById("logoutButton").style.visibility="hidden";
+}
 
 page_set();
