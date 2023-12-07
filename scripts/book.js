@@ -133,7 +133,7 @@ if (getLoggedUser() !== null) {
         for(let i = 0; i < userlist.length; i++) {
             // console.log(userlist[i].user_id + " : " + userlist[i].usergroup);
             if (Number(userlist[i].user_id) === Number(getLoggedUser()) && Number(userlist[i].usergroup) === 1) {
-                // console.log("User is admin");
+                console.log("User is admin");
                 document.getElementById("remove-button").style.visibility="visible";
             }
         };
